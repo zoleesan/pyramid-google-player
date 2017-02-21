@@ -1,0 +1,32 @@
+audio {
+    width: 100%;
+}
+
+.audio-player {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.song-name {
+    display: inline-block;
+    font-size: 20px;
+
+}
+
+.render-audio {
+    display: inline-block;
+    border: 1px solid;
+    padding: 2px 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.header h4 {
+    display: inline-block;
+}
+
+.header button {
+    display: inline-block;
+    float: right;
+}
