@@ -1,1 +1,7 @@
 /google_player.egg-info
+/google_player/__init__.pyc
+/google_player/config.pyc
+/google_player/helper.pyc
+/google_player/templates/index.pt
+/google_player/templates/master.pt
+/google_player/views.pyc

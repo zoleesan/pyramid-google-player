@@ -1,3 +1,4 @@
+from pyramid.renderers import get_renderer
 from pyramid.view import view_config
 from gmusicapi import Mobileclient
 from datetime import timedelta
@@ -10,7 +11,7 @@ import json
 pp = pprint.PrettyPrinter(indent=2)
 
 
-@view_config(route_name='home', renderer='templates/home.pt')
+@view_config(route_name='home', renderer='templates/index.pt')
 def home(request):
 
     sync = request.params.get('sync', None)
@@ -25,7 +26,6 @@ def home(request):
         songs = f.read()
         songs = json.loads(songs)
     else:
-        print('dadadad')
         songs = api.get_all_songs()
         songs = list(reversed(resort_by_added(songs)))
 
@@ -45,4 +45,8 @@ def home(request):
                                                      GOOGLE_DEVICE_ID),
                            'date': d.strftime("%a %d-%m-%Y %H:%M")})
 
-    return {'song_list': result, 'name': "Song list", 'req_host': request.host}
+    master = get_renderer('templates/master.pt').implementation()
+
+    return {'song_list': result,
+            'title': "Song list",
+            'main': master}
